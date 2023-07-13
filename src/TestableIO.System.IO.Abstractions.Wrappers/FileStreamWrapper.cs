@@ -41,5 +41,15 @@ namespace System.IO.Abstractions
                 throw new ArgumentException("value must be of type `FileSecurity`");
             }
         }
+
+        /// <summary>
+        /// Allows to get the internal FileStream
+        /// </summary>
+        /// <param name="fsStream">The FileSystemStream to cast</param>
+        /// <exception cref="InvalidCastException"></exception>
+        public static explicit operator FileStream(FileStreamWrapper fsStream)
+        {
+            return fsStream.fileStream;
+        }
     }
 }
